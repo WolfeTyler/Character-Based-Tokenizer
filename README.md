@@ -1,8 +1,6 @@
 # Character-Based Tokenizer
 
-This is a simple, educational **character-level tokenizer** for NLP / LLM experiments.
-
-This project turns text into a sequence of **character IDs** (and back again), so you can train language models (RNNs, Transformers, etc.) without needing complex tokenization like BPE/WordPiece.
+This is a simple, educational **character-level tokenizer** for NLP / LLM experiments. This turns text into a sequence of **character IDs** (and back again), so you can train language models (RNNs, Transformers, etc.) without needing complex tokenization like BPE/WordPiece.
 
 ## Tokenization
 
