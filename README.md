@@ -46,6 +46,16 @@ A **character-based tokenizer** is the simplest possible approach:
 
 That’s it. This is the core mechanism behind all tokenizers—just with characters instead of subwords.
 
+```mermaid
+flowchart TD
+  A["Text stream (tinyshakespeare)<br/>...ROMEO: But soft! what light..."] --> B["Encode to IDs<br/>... 18, 52, 7, 7, 14 ..."]
+  B --> C["Sliding Window"]
+  C --> D["Input (context)<br/>length = block_size<br/>[18, 52, 7, 7, 14]"]
+  C --> E["Target (next char)<br/>[52, 7, 7, 14, 3]"]
+  D --> F["Model predicts next char probs<br/>(softmax over vocab)"]
+  F --> G["Loss compares prediction vs target"]
+```
+
 ---
 
 ## Installation
