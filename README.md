@@ -57,18 +57,6 @@ git clone https://github.com/WolfeTyler/Character-Based-Tokenizer.git
 cd Character-Based-Tokenizer
 ```
 
-If you have a `requirements.txt`:
-
-```bash
-pip install -r requirements.txt
-```
-
-Or if it’s packaged:
-
-```bash
-pip install -e .
-```
-
 ---
 
 ## Quickstart
@@ -78,7 +66,7 @@ pip install -e .
 ### 1) Build the vocabulary
 
 ```python
-from character_tokenizer import CharacterTokenizer  # adjust if needed
+from character_tokenizer import CharacterTokenizer
 
 text = "Hello, Skyrim! Hello, Morrowind!"
 tok = CharacterTokenizer()
