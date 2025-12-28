@@ -4,11 +4,49 @@ This is a simple, educational **character-level tokenizer** for NLP / LLM experi
 
 This project turns text into a sequence of **character IDs** (and back again), so you can train language models (RNNs, Transformers, etc.) without needing complex tokenization like BPE/WordPiece.
 
+## Tokenization
+
+Computers don’t understand words the way humans do — they understand **numbers**.
+
+So before an AI model (like an LLM) can learn from text, we have to **break the text into pieces** and turn those pieces into **IDs (numbers)**.  
+That process is called **tokenization**.
+
+### A simple example
+Text:
+`"hi!"`
+
+Tokenization (character-based):
+`["h", "i", "!"]`
+
+Then we map each character to a number:
+`["h", "i", "!"] → [8, 9, 3]` (example)
+
+Now the model can work with it — because models learn from numbers.
+
+### Why tokenization is useful for LLMs
+LLMs learn a game called **“predict the next thing”**.
+
+If the model sees:
+`"To be or not to b"`
+
+It tries to predict the next character:
+`"e"`
+
+To do that, it needs the text in a format it can process (numbers), and tokenization gives it that.
+
 ---
 
 ## Why character-level tokenization?
 
-Most modern LLMs use subword tokenizers (BPE/WordPiece) that split text into chunks like `"un" + "break" + "able"`. That’s powerful—but it can feel like a lot when you’re learning.
+Many LLMs use bigger token pieces (like word chunks), but **character tokenization is the simplest to understand**:
+
+- It works on *any* text you give it (even weird names or symbols)
+- It makes it super clear how a dataset like **tinyshakespeare** becomes training data
+- It’s perfect for learning the foundations of NLP and Transformers
+
+The tradeoff is that character sequences are longer, so models may need more steps to learn. But for learning and small experiments, it’s awesome.
+
+> In this project, we use **tinyshakespeare** text and turn it into character IDs so a model can learn patterns and generate text one character at a time.
 
 A **character-based tokenizer** is the simplest possible approach:
 
@@ -27,7 +65,7 @@ A **character-based tokenizer** is the simplest possible approach:
 
 ---
 
-## How it works (conceptually)
+## How it works
 
 1. **Build a vocabulary**
    - Gather all unique characters in your dataset
